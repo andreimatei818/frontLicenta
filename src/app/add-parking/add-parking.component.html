@@ -1,0 +1,127 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<app-header></app-header>
+<app-menu-user></app-menu-user>
+<br>
+<form #f="ngForm">
+  <div class="container">
+    <div class="row ">
+      <div class="col-md-4 py-5 bg-primary text-white text-center ">
+        <div class=" ">
+          <div class="card-body">
+            <!--<img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style="width:30%">-->
+            <img width="300"  src="./assets/img.png" >
+            <h2 class="py-3">Add a new parking location</h2>
+            <p> and increase your chance to find the perfect parking location when you will need it.
+            </p>
+            <h2 type="text">:)</h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 py-3 border">
+        <h4 class="pb-4 text-center">Please fill with your details</h4>
+        <br>
+        <br>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="startDate" class="col-md-6 control-label">Start Date</label>
+          </div>
+          <div class="form-group col-md-6">
+            <input type="datetime-local" id="startDate"
+                   ng-model="example.value"
+                   required
+                   pattern="^[2][0-9]{3}[-][0-1]{1}[0-9]{1}[-][0-3]{1}[0-9]{1}[T][0-1]{1}[0-9]{1}[:][0-5]{1}[0-9]{1}$"
+                   [(ngModel)]="startDate" name="startDate"
+                   class="form-control" autofocus
+                   #startD="ngModel"
+            >
+            <div *ngIf="startD.invalid && (startD.dirty || startD.touched)"
+                 class="alert alert-danger">
+              Please insert a valid date
+            </div>
+            <div *ngIf="startD < dateNow"
+                 class="alert alert-danger">
+              Please insert a valid date
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="endDate" class="col-md-6 control-label">End Date</label>
+          </div>
+          <div class="form-group col-md-6">
+
+            <input type="datetime-local" id="endDate"
+                   min="2019-01-01T00:00:00"
+                   required
+                   pattern="^[2][0-9]{3}[-][0-1]{1}[0-9]{1}[-][0-3]{1}[0-9]{1}[T][0-1]{1}[0-9]{1}[:][0-5]{1}[0-9]{1}$"
+                   [(ngModel)]="endDate" name="endDate"
+                   class="form-control" autofocus
+                   #endD="ngModel"
+            >
+
+            <div *ngIf="endD.invalid && (endD.dirty || endD.touched)"
+                 class="alert alert-danger">
+              Please insert a valid date
+
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="street" class="col-md-6 control-label">Street</label>
+          </div>
+          <div class="form-group col-md-6">
+            <input type="text" id="street"
+                   [(ngModel)]="street" name="street"
+                   placeholder="Address" class="form-control" autofocus
+                   #Street="ngModel"
+                   required="Street"
+            >
+            <div *ngIf="Street.invalid && (Street.dirty || Street.touched)"
+                 class="alert alert-danger">
+               <div *ngIf="Street.errors.required">
+                Street is required.
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="form-row">
+          <div  class="form-group col-md-12 col">
+            <input type="text" id="details"
+                   [(ngModel)]="details" name="street"
+                   placeholder="Leave a comment" class="form-control" autofocus
+                   required="Details"
+            >
+
+          </div>
+        </div>
+
+        <!-- Default unchecked -->
+
+        <input
+          type="checkbox"
+          [(ngModel)]="isFree"
+          [ngModelOptions]="{standalone: true}"/> Only for users who have registered a location
+
+
+        <div class="form-row">
+          <button type="button" class="btn btn-primary" id="add"
+                  (click)="getRegistaration()"
+          [disabled]="f.invalid"
+          >Add location
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

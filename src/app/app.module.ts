@@ -1,0 +1,83 @@
+import {RouterModule, Routes} from '@angular/router';
+import {LoginComponent} from './login/login.component';
+import {NgModule} from '@angular/core';
+import {AppComponent} from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {RegisterComponent} from './register/register.component';
+import {ComparValidatorDirective} from './shared/compar-validator.directive';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {UserComponent} from './user/user.component';
+import {HeaderComponent} from './header/header.component';
+import {MenuUserComponent} from './menu-user/menu-user.component';
+import {AddParkingComponent} from './add-parking/add-parking.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import {DateValidatorDirective} from './shared/date-validator.directive';
+import {DlDateTimeDateModule, DlDateTimePickerModule} from 'angular-bootstrap-datetimepicker';
+import {SearchParkingComponent} from './search-parking/search-parking.component';
+import {ReservedLocationComponent} from './reserved-location/reserved-location.component';
+import { TableSearchComponent } from './table-search/table-search.component';
+import {TableSearchComponentServices} from './table-search/table-search.component.services';
+import {UserService} from './user/user.component.services';
+import {LoginComponentService} from './login/login.component.servicez';
+import {AddParkingComponentService} from './add-parking/add-parking.component.services';
+import {RegisterComponentService} from './register/register.component.services';
+
+
+
+const appRoutes: Routes = [
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'user', component: UserComponent},
+  {path: 'add', component: AddParkingComponent},
+  {path: 'search', component: SearchParkingComponent},
+  {path: 'reserved-location', component: ReservedLocationComponent},
+
+];
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    ComparValidatorDirective,
+    UserComponent,
+    HeaderComponent,
+    MenuUserComponent,
+    AddParkingComponent,
+    DateValidatorDirective,
+    SearchParkingComponent,
+    ReservedLocationComponent,
+    TableSearchComponent,
+
+  ],
+  imports: [
+    RouterModule.forRoot(
+      appRoutes,
+      {enableTracing: false} // <-- debugging purposes only
+    ),
+    BrowserModule,
+    FormsModule,
+    NgbModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    AngularFontAwesomeModule,
+    DlDateTimeDateModule,
+    DlDateTimePickerModule,
+
+
+  ],
+  providers: [
+    LoginComponentService,
+    RegisterComponentService,
+    AddParkingComponentService,
+    UserService,
+    TableSearchComponentServices
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}

@@ -1,0 +1,35 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~open-iconic/font/css/open-iconic-bootstrap.css';
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~open-iconic/font/css/open-iconic-bootstrap.css';
+img {width:100%;}
+#a{
+  background: #fff9ff;
+}
+.bg-primary{
+  background: black  !important;
+}
+
+#add{
+  position: absolute;
+  right: 0;
+  bottom:   0;
+  width: 150px;
+  background: #000000;
+}
+
+#da{
+  width: 340px;
+}
+
+#details{
+  min-width: 100px;
+  max-width: 2000px;
+  width: 100%;
+}
+
+
+
+
+

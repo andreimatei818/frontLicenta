@@ -1,0 +1,30 @@
+
+*[role="form"] {
+  max-width: 600px;
+  padding: 100px;
+  margin: 0 auto;
+  border-radius: 0.3em;
+  background-color: #f2f2f2;
+}
+
+*[role="form"] h2 {
+  font-family: 'Open Sans' , sans-serif;
+  font-size: 40px;
+  font-weight: 300;
+  color: #000000;
+  margin-top: 5%;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+#titleR {
+  position: fixed;
+  top: 0;
+  width: 0%;
+}
+
+#register{
+   background: black;
+   background: black;
+ }
