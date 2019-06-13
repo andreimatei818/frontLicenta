@@ -24,8 +24,9 @@ import {UserService} from './user/user.component.services';
 import {LoginComponentService} from './login/login.component.servicez';
 import {AddParkingComponentService} from './add-parking/add-parking.component.services';
 import {RegisterComponentService} from './register/register.component.services';
-
-
+import { DataTableModule } from 'primeng/primeng';
+import { TableModule } from 'primeng/table';
+import { PaginatorModule } from 'primeng/paginator';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -67,7 +68,9 @@ const appRoutes: Routes = [
     AngularFontAwesomeModule,
     DlDateTimeDateModule,
     DlDateTimePickerModule,
-
+    DataTableModule,
+    TableModule,
+    PaginatorModule,
 
   ],
   providers: [

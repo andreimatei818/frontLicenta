@@ -1,25 +1,11 @@
 <div class="card">
   <div class="card-body">
-    <div id="table" class="table-editable">
-      <table class="table table-bordered table-responsive-md table-striped text-center">
-        <tr>
-          <th>#</th>
-          <th class="text-center">Street</th>
-          <th class="text-center">For all users </th>
-          <th class="text-center">Start date</th>
-          <th class="text-center">End date</th>
+    <p-dataTable [value]="historyList" [paginator]="true" [rows]="10" #dt>
+      <p-column field="address" header="Streets"  [filter]="true"  [sortable]="true"></p-column>
+      <p-column field="isFree" header="For all users"  [sortable]="true"></p-column>
+      <p-column field="startDate" header="Start date"  [sortable]="true"></p-column>
+      <p-column field="endDate" header="End date"  [sortable]="true"></p-column>
+    </p-dataTable>
 
-        </tr>
-        <tbody *ngFor="let history of historyList; index as i">
-        <tr>
-          <th scope="row">{{i+1}}</th>
-          <td>{{history.address}}</td>
-          <td>{{history.isFree}}</td>
-          <td>{{history.startDate}}</td>
-          <td>{{history.endDate}}</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
 </div>
