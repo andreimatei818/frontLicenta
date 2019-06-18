@@ -6,6 +6,13 @@ export class Parking {
   public comment: string;
   public startDate: DateTimeModel;
   public endDate: DateTimeModel;
+
+  constructor(address: string, startDate: DateTimeModel, endDate: DateTimeModel) {
+    this.address = address;
+    this.startDate = startDate;
+    this.endDate = endDate;
+  }
+
   public isFree:boolean;
 
 }

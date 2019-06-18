@@ -10,7 +10,7 @@ import {TableSearchComponentServices} from './table-search.component.services';
 })
 export class TableSearchComponent implements OnInit {
 
-  public historyList: Array<Parking> = new Array<Parking>();
+  private historyList: Array<Parking> = new Array<Parking>();
   private username: string;
 
   constructor(private router: Router, private tableService: TableSearchComponentServices) {
@@ -30,4 +30,8 @@ export class TableSearchComponent implements OnInit {
     });
   }
 
+  goToReserve(address: any) {
+      console.log(address);
+       this.router.navigate(['/user']);
+  }
 }

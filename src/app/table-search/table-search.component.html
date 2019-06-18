@@ -1,11 +1,24 @@
 <div class="card">
   <div class="card-body">
     <p-dataTable [value]="historyList" [paginator]="true" [rows]="10" #dt>
-      <p-column field="address" header="Streets"  [filter]="true"  [sortable]="true"></p-column>
-      <p-column field="isFree" header="For all users"  [sortable]="true"></p-column>
-      <p-column field="startDate" header="Start date"  [sortable]="true"></p-column>
-      <p-column field="endDate" header="End date"  [sortable]="true"></p-column>
+      <p-column field="address" header="Streets" [filter]="true" [sortable]="true"></p-column>
+      <p-column field="isFree" header="For all users" [sortable]="true"></p-column>
+      <p-column field="startDate" header="Start date" [sortable]="true"></p-column>
+      <p-column field="endDate" header="End date" [sortable]="true"></p-column>
+      <p-column header="Reserve">
+
+        <ng-template let-course="rowData" pTemplate="body">
+
+          <button type="button" class="btn btn-primary" id="reserve"
+                  (click)="goToReserve()"
+          >Go
+          </button>
+
+        </ng-template>
+      </p-column>
+
     </p-dataTable>
   </div>
 
 </div>
+

@@ -18,15 +18,17 @@ import {DateValidatorDirective} from './shared/date-validator.directive';
 import {DlDateTimeDateModule, DlDateTimePickerModule} from 'angular-bootstrap-datetimepicker';
 import {SearchParkingComponent} from './search-parking/search-parking.component';
 import {ReservedLocationComponent} from './reserved-location/reserved-location.component';
-import { TableSearchComponent } from './table-search/table-search.component';
+import {TableSearchComponent} from './table-search/table-search.component';
 import {TableSearchComponentServices} from './table-search/table-search.component.services';
 import {UserService} from './user/user.component.services';
 import {LoginComponentService} from './login/login.component.servicez';
 import {AddParkingComponentService} from './add-parking/add-parking.component.services';
 import {RegisterComponentService} from './register/register.component.services';
-import { DataTableModule } from 'primeng/primeng';
-import { TableModule } from 'primeng/table';
-import { PaginatorModule } from 'primeng/paginator';
+import {DataTableModule} from 'primeng/primeng';
+import {TableModule} from 'primeng/table';
+import {PaginatorModule} from 'primeng/paginator';
+import {TableUsersComponent} from './table-users/table-users.component';
+import {TableUsersService} from './table-users/table-users.service';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -52,6 +54,7 @@ const appRoutes: Routes = [
     SearchParkingComponent,
     ReservedLocationComponent,
     TableSearchComponent,
+    TableUsersComponent,
 
   ],
   imports: [
@@ -78,7 +81,8 @@ const appRoutes: Routes = [
     RegisterComponentService,
     AddParkingComponentService,
     UserService,
-    TableSearchComponentServices
+    TableSearchComponentServices,
+    TableUsersService,
   ],
   bootstrap: [AppComponent]
 })
