@@ -15,7 +15,7 @@ export class ModalComponentService {
   addReservation(parking: Parking): Observable<Parking> {
 
     const httpHeaders: HttpHeaders = new HttpHeaders().append('Content-Type', 'application/json');
-    return this.httpClient.post<Parking>(this.baseURL + '/reservation', parking, {
+    return this.httpClient.post<Parking>(this.baseURL + '/reserveParking', parking, {
       headers: httpHeaders,
       responseType: 'json'
     });
