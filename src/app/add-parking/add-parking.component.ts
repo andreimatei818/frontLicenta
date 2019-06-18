@@ -37,6 +37,7 @@ export class AddParkingComponent implements OnInit {
 
   createRegistration(): Parking {
     return {
+      id:null,
       address: this.street,
       comment: this.details,
       startDate: this.startDate,

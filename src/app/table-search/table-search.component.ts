@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Parking} from '../entities/Parking';
 import {Router} from '@angular/router';
 import {TableSearchComponentServices} from './table-search.component.services';
+import {ModalComponent} from "../modal/modal.component";
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-table-search',
@@ -13,7 +15,7 @@ export class TableSearchComponent implements OnInit {
   private historyList: Array<Parking> = new Array<Parking>();
   private username: string;
 
-  constructor(private router: Router, private tableService: TableSearchComponentServices) {
+  constructor(private router: Router, private tableService: TableSearchComponentServices, public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -30,8 +32,17 @@ export class TableSearchComponent implements OnInit {
     });
   }
 
-  goToReserve(address: any) {
-      console.log(address);
-       this.router.navigate(['/user']);
+  goToReserve(row: Parking) {
+      console.log(row);
+    const dialogConfig = new MatDialogConfig();
+
+    const dialogRef = this.dialog.open(ModalComponent, {
+      autoFocus:true,
+      data: {parking: row }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+          console.log("bla");
+    });
   }
 }
