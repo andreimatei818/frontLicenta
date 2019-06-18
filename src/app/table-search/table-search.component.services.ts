@@ -17,4 +17,8 @@ export class TableSearchComponentServices {
       responseType: 'json'
     }) ;
   }
+  goToReserve(row)
+  {
+    console.log(row);
+  }
 }

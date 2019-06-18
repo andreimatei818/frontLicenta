@@ -7,10 +7,10 @@
       <p-column field="endDate" header="End date" [sortable]="true"></p-column>
       <p-column header="Reserve">
 
-        <ng-template let-course="rowData" pTemplate="body">
+        <ng-template let-row="rowData" pTemplate="body">
 
           <button type="button" class="btn btn-primary" id="reserve"
-                  (click)="goToReserve()"
+                  (click)="goToReserve(row)"
           >Go
           </button>
 
