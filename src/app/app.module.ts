@@ -29,9 +29,12 @@ import {TableModule} from 'primeng/table';
 import {PaginatorModule} from 'primeng/paginator';
 import {TableUsersComponent} from './table-users/table-users.component';
 import {TableUsersService} from './table-users/table-users.service';
-import { ModalComponent } from './modal/modal.component';
-import {MatDialogModule, MatFormFieldModule} from "@angular/material";
-import {ModalComponentService} from "./modal/modal.component.service";
+import {ModalComponent} from './modal/modal.component';
+import {MatDialogModule, MatFormFieldModule} from '@angular/material';
+import {ModalComponentService} from './modal/modal.component.service';
+import {TableReservedService} from "./table-reserved/table-reserved.service";
+import {TableReservedComponent} from "./table-reserved/table-reserved.component";
+
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -59,6 +62,8 @@ const appRoutes: Routes = [
     TableSearchComponent,
     ModalComponent,
     TableUsersComponent,
+    TableReservedComponent
+
 
   ],
   imports: [
@@ -90,6 +95,7 @@ const appRoutes: Routes = [
     UserService,
     TableSearchComponentServices,
     TableUsersService,
+    TableReservedService
   ],
   entryComponents: [
     ModalComponent
