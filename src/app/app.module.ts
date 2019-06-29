@@ -2,7 +2,6 @@ import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
-import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RegisterComponent} from './register/register.component';
@@ -32,9 +31,12 @@ import {TableUsersService} from './table-users/table-users.service';
 import {ModalComponent} from './modal/modal.component';
 import {MatDialogModule, MatFormFieldModule} from '@angular/material';
 import {ModalComponentService} from './modal/modal.component.service';
-import {TableReservedService} from "./table-reserved/table-reserved.service";
-import {TableReservedComponent} from "./table-reserved/table-reserved.component";
-
+import {TableReservedService} from './table-reserved/table-reserved.service';
+import {TableReservedComponent} from './table-reserved/table-reserved.component';
+import {AgmCoreModule, GoogleMapsAPIWrapper} from '@agm/core';
+import { MapsComponent } from './maps/maps.component';
+import { HereMapComponent } from './here-map/here-map.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -43,6 +45,7 @@ const appRoutes: Routes = [
   {path: 'add', component: AddParkingComponent},
   {path: 'search', component: SearchParkingComponent},
   {path: 'reserved-location', component: ReservedLocationComponent},
+  {path: 'maps', component: MapsComponent},
 
 ];
 
@@ -62,7 +65,9 @@ const appRoutes: Routes = [
     TableSearchComponent,
     ModalComponent,
     TableUsersComponent,
-    TableReservedComponent
+    TableReservedComponent,
+    MapsComponent,
+    HereMapComponent,
 
 
   ],
@@ -95,7 +100,8 @@ const appRoutes: Routes = [
     UserService,
     TableSearchComponentServices,
     TableUsersService,
-    TableReservedService
+    TableReservedService,
+    GoogleMapsAPIWrapper,
   ],
   entryComponents: [
     ModalComponent

@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
   }
 
   redirectFirstPage() {
-    this.router.navigate(['/user']);
+    this.router.navigate(['/search']);
   }
 
   onLogin() {

@@ -2,3 +2,6 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~open-iconic/font/css/open-iconic-bootstrap.css';
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+.H_ib_body {
+  width: 275px;
+}

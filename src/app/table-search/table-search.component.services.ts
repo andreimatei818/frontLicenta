@@ -13,7 +13,7 @@ export class TableSearchComponentServices {
   }
 
   getParkingDetailsByUser(username: string): Observable<Array<Parking>> {
-    return this.httpClient.get<Array<Parking>>(this.baseURL + '/getParkingByUser/?username=' + username, {
+    return this.httpClient.get<Array<Parking>>(this.baseURL + '/getListAllParkingAddress', {
       responseType: 'json'
     }) ;
   }
