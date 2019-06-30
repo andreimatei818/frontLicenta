@@ -1,7 +1,22 @@
-<div class="card">
-  <div class="card-body">
-    <p-dataTable [value]="historyList" [paginator]="true" [rows]="10" #dt>
-      <p-column field="address" header="Streets" [filter]="true" [sortable]="true"></p-column>
+<div>
+<div style="padding: 10px 0">
+  <input type="text" placeholder="Search places..." [(ngModel)]="query" />
+  <button (click)="map.places(query)">Search</button>
+
+</div>
+<app-here-map
+  #map
+  appId="0dNbIEXdo0XceyL4mbY7"
+  appCode="_ketCycjQ-mEtVlMO_OGTw"
+  lat="44.3917853"
+  lng="26.1241184"
+  width="100%"
+  height="530px">
+</app-here-map>
+
+  <div class="card-body" id="tabel1" width="100%">
+      <p-dataTable [value]="historyList"   [paginator]="true" [rows]="4" #dt>
+      <p-column field="address" header="Streets" [filter]="true"  [sortable]="true"></p-column>
       <p-column field="isFree" header="For all users" [sortable]="true"></p-column>
       <p-column field="startDate" header="Start date" [sortable]="true"></p-column>
       <p-column field="endDate" header="End date" [sortable]="true"></p-column>
@@ -18,7 +33,7 @@
       </p-column>
 
     </p-dataTable>
+
   </div>
 
 </div>
-

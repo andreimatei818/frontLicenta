@@ -34,9 +34,9 @@ export class TableUsersComponent implements OnInit {
     });
   }
 
-  removeParking(address: string) {
-    this.tableService.deleteParking(address).subscribe(response => {
-        this.historyList = this.historyList.filter(parking => parking.address !==  address);
+  removeParking(parkingToDelete: Parking) {
+    this.tableService.deleteParking(parkingToDelete).subscribe(response => {
+        this.historyList = this.historyList.filter(parking => parking.address !== parkingToDelete.address);
       }, error1 => {
         alert('Error connection with the database');
       }

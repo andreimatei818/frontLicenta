@@ -2,6 +2,7 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~open-iconic/font/css/open-iconic-bootstrap.css';
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import "~ng-pick-datetime/assets/style/picker.min.css";
 .H_ib_body {
   width: 275px;
 }

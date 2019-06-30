@@ -4,7 +4,7 @@
   <tr>
     <th scope="col">#</th>
     <th scope="col">Address</th>
-    <th scope="col">For all users</th>
+    <th scope="col" >For all users</th>
     <th scope="col">Start Date</th>
     <th scope="col">End Date</th>
     <th scope="col">Action</th>
@@ -18,8 +18,13 @@
     <td>{{parking.isFree}}</td>
     <td>{{parking.startDate}}</td>
     <td>{{parking.endDate}}</td>
-    <td><button type="button" class="btn btn-danger" (click)="removeParking(parking.address)">Delete</button> </td>
+    <td><button type="button" class="btn btn-danger" (click)="removeParking(parking)">Delete</button> </td>
   </tr>
 
   </tbody>
 </table>
+
+<!--@import "~ng-pick-datetime/assets/style/picker.min.css";-->
+<!--.H_ib_body {-->
+<!--width: 275px;-->
+<!--}-->

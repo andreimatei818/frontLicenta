@@ -3,6 +3,7 @@ import {User} from '../entities/User';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Parking} from '../entities/Parking';
+import {ParkingString} from '../entities/ParkingString';
 
 @Injectable()
 export class AddParkingComponentService {
@@ -12,7 +13,7 @@ export class AddParkingComponentService {
   constructor(private httpClient: HttpClient) {
   }
 
-  addParking(parking: Parking): Observable<Parking> {
+  addParking(parking: ParkingString): Observable<Parking> {
     console.log(parking);
     console.log('sadasdsa');
     console.log(parking.isFree);

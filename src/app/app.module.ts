@@ -33,11 +33,13 @@ import {MatDialogModule, MatFormFieldModule} from '@angular/material';
 import {ModalComponentService} from './modal/modal.component.service';
 import {TableReservedService} from './table-reserved/table-reserved.service';
 import {TableReservedComponent} from './table-reserved/table-reserved.component';
-import {AgmCoreModule, GoogleMapsAPIWrapper} from '@agm/core';
-import { MapsComponent } from './maps/maps.component';
-import { HereMapComponent } from './here-map/here-map.component';
-import { BrowserModule } from '@angular/platform-browser';
-
+import {MapsComponent} from './maps/maps.component';
+import {HereMapComponent} from './here-map/here-map.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {AutocompleteComponent} from './autocomplete/autocomplete.component';
+import {AutocompleteComponentServices} from './autocomplete/autocomplete.component.services';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { DatetimeComponent } from './datetime/datetime.component';
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
@@ -46,6 +48,8 @@ const appRoutes: Routes = [
   {path: 'search', component: SearchParkingComponent},
   {path: 'reserved-location', component: ReservedLocationComponent},
   {path: 'maps', component: MapsComponent},
+  {path: 'autocomplete', component: AutocompleteComponent},
+
 
 ];
 
@@ -68,6 +72,8 @@ const appRoutes: Routes = [
     TableReservedComponent,
     MapsComponent,
     HereMapComponent,
+    AutocompleteComponent,
+    DatetimeComponent,
 
 
   ],
@@ -90,6 +96,9 @@ const appRoutes: Routes = [
     PaginatorModule,
     MatDialogModule,
     MatFormFieldModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
+
 
   ],
   providers: [
@@ -101,7 +110,7 @@ const appRoutes: Routes = [
     TableSearchComponentServices,
     TableUsersService,
     TableReservedService,
-    GoogleMapsAPIWrapper,
+    AutocompleteComponentServices
   ],
   entryComponents: [
     ModalComponent

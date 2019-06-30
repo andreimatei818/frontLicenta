@@ -3,6 +3,7 @@ import {User} from '../entities/User';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Parking} from '../entities/Parking';
+import {ParkingString} from '../entities/ParkingString';
 
 @Injectable()
 export class ModalComponentService {
@@ -12,7 +13,7 @@ export class ModalComponentService {
   constructor(private httpClient: HttpClient) {
   }
 
-  addReservation(parking: Parking): Observable<Parking> {
+  addReservation(parking: ParkingString): Observable<Parking> {
 
     const httpHeaders: HttpHeaders = new HttpHeaders().append('Content-Type', 'application/json');
     return this.httpClient.post<Parking>(this.baseURL + '/reserveParking', parking, {

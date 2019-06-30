@@ -2,9 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {DateTimeModel} from '../date-time-picker/date-time.model';
 import {Parking} from '../entities/Parking';
 import {RegisterUser} from '../entities/RegisterUser';
-import {FormGroup} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AddParkingComponentService} from './add-parking.component.services';
+import {formatDate} from '@angular/common';
+import {ParkingString} from '../entities/ParkingString';
+import {locale} from 'moment';
 
 @Component({
   selector: 'app-add-parking',
@@ -22,10 +25,14 @@ export class AddParkingComponent implements OnInit {
   public startDate: DateTimeModel;
   public endDate: DateTimeModel;
   parking: Parking;
+  parking2: ParkingString;
   registerData: FormGroup;
-  public dateNow: DateTimeModel;
-  public isFree: boolean;
-
+  private dateNow: DateTimeModel;
+  private isFree: boolean;
+  public selectedMoment2 = new DateTimeModel();
+  private min = new Date();
+  private dateStartModel = new Date();
+  private date: string;
 
   ngOnInit() {
     this.dateNow = new DateTimeModel();
@@ -35,13 +42,16 @@ export class AddParkingComponent implements OnInit {
 
   }
 
-  createRegistration(): Parking {
+  createRegistration(): ParkingString {
+    // tslint:disable-next-line:no-shadowed-variable
+    const locale = 'en-US';
+    const format = 'yyyy-MM-ddTHH:mm';
     return {
-      id:null,
+      id: null,
       address: this.street,
       comment: this.details,
-      startDate: this.startDate,
-      endDate: this.endDate,
+      startDate: formatDate(this.selectedMoment2[0], format, locale),
+      endDate: formatDate(this.selectedMoment2[1], format, locale),
       isFree: this.isFree,
       username: localStorage.getItem('username')
     }
@@ -49,19 +59,15 @@ export class AddParkingComponent implements OnInit {
   }
 
   getRegistaration() {
-    this.parking = this.createRegistration();
-    console.log('start date ', this.parking.startDate);
-    console.log('end date', this.parking.endDate);
-    console.log('street', this.parking.address);
-    console.log('details', this.parking.comment);
-    console.log('is free', this.parking.isFree);
-
-    this.serviceParking.addParking(this.parking).subscribe(value => {
+    this.parking2 = this.createRegistration();
+    this.street = ' ';
+    this.serviceParking.addParking(this.parking2).subscribe(value => {
         alert('Location was saved ');
       }, error1 => {
         alert('Err');
       }
     );
+    this.selectedMoment2 = new DateTimeModel();
   }
 
 
