@@ -3,16 +3,14 @@ import {ParkingString} from './ParkingString';
 
 export class Parking2Date {
   public parking: ParkingString;
-  public intialStartDate: string;
-  public initialEndDatee: string;
+  public initialStartDate: string;
+  public initialEndDate: string;
 
-
-  constructor(parking: ParkingString, intialStartDate: string, initialEndDatee: string, isFree: boolean) {
+  constructor(parking: ParkingString, intialStartDate: string, initialEndDatee: string) {
     this.parking = parking;
-    this.intialStartDate = intialStartDate;
-    this.initialEndDatee = initialEndDatee;
-    this.isFree = isFree;
+    this.initialStartDate = intialStartDate;
+    this.initialEndDate = initialEndDatee;
   }
 
-  public isFree: boolean;
+
 }
