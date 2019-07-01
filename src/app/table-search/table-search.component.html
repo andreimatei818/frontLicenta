@@ -1,7 +1,7 @@
 <div>
 <div style="padding: 10px 0">
   <input type="text" placeholder="Search places..." [(ngModel)]="query" />
-  <button (click)="map.places(query)">Search</button>
+  <button (click)="map.places(query)" class="btn btn-primary">Search</button>
 
 </div>
 <app-here-map
@@ -16,17 +16,29 @@
 
   <div class="card-body" id="tabel1" width="100%">
       <p-dataTable [value]="historyList"   [paginator]="true" [rows]="4" #dt>
-      <p-column field="address" header="Streets" [filter]="true"  [sortable]="true"></p-column>
+      <p-column field="address" header="Streets" [filter]="true"  [sortable]="true">
+        <ng-template let-col="rowData" pTemplate type="body" >
+          <button type="button" (click)="map.places(col.address)" class="btn btn-primary"  pButton
+                  >{{col.address}}</button>
+        </ng-template>
+      </p-column>
       <p-column field="isFree" header="For all users" [sortable]="true"></p-column>
-      <p-column field="startDate" header="Start date" [sortable]="true"></p-column>
-      <p-column field="endDate" header="End date" [sortable]="true"></p-column>
+      <p-column field="startDate" header="Start date" [sortable]="true"  [style]="{'width': '200px'}">
+        <ng-template let-row="rowData" pTemplate="body">
+          {{row.startDate | date:'MM/dd/yyyy hh:mm'}}
+        </ng-template>
+      </p-column>
+      <p-column field="endDate" header="End date" [sortable]="true"  [style]="{'width': '200px'}">
+        <ng-template let-row="rowData" pTemplate="body">
+          {{row.endDate | date:'MM/dd/yyyy hh:mm'}}
+        </ng-template>
+      </p-column>
       <p-column header="Reserve">
 
         <ng-template let-row="rowData" pTemplate="body">
 
           <button type="button" class="btn btn-primary" id="reserve"
-                  (click)="goToReserve(row)"
-          >Go
+                  (click)="goToReserve(row)">Go
           </button>
 
         </ng-template>

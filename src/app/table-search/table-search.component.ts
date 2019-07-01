@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import {Parking} from '../entities/Parking';
 import {Router} from '@angular/router';
 import {TableSearchComponentServices} from './table-search.component.services';
@@ -16,10 +16,11 @@ export class TableSearchComponent implements OnInit {
   private historyList: Array<Parking> = new Array<Parking>();
 
   private historyList2: Array<LocationDetails> = new Array<LocationDetails>();
+  @ViewChild('map')
+  public mapElement: ElementRef;
 
   private username: string;
   private query: string;
-
   constructor(private router: Router, private tableService: TableSearchComponentServices, public dialog: MatDialog) {
   }
 
