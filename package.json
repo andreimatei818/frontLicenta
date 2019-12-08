@@ -38,7 +38,6 @@
     "moment": "^2.24.0",
     "ng-pick-datetime": "^7.0.0",
     "ngx-bootstrap": "^4.0.1",
-    "npm": "^6.9.0",
     "open-iconic": "^1.1.1",
     "primeng": "6.0.0",
     "rxjs": "~6.3.3",
